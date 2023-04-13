@@ -20,27 +20,27 @@ fun main(){
     area = length * width
 
     //1.implicit, With import kotlin.math.roundToInt, 100 with .0, 456.87
-    //var round = (area*100.0).roundToInt()/100.0
+    //var decimalValue = (area*100.0).roundToInt()/100.0
 
     //1.explicit, error if Int
-    //var round: Double = 0.0
+    //var decimalValue: Double = 0.0
     //With import kotlin.math.roundToInt, 100 with .0, 456.87
-    //round = (area*100.0).roundToInt()/100.0
+    //decimalValue = (area*100.0).roundToInt()/100.0
 
 
     //2.implicit, With import kotlin.math.roundToInt, 100, roundToInt().toDouble(), 456.87
-    //var round = (area*100).roundToInt().toDouble()/100
+    //var decimalValue = (area*100).roundToInt().toDouble()/100
 
     //2.explicit, error if Int
-    //var round: Double = 0.0
+    //var decimalValue: Double = 0.0
     //With import kotlin.math.roundToInt, 100, roundToInt().toDouble(), 456.87
-    //round = (area*100).roundToInt().toDouble()/100
+    //decimalValue = (area*100).roundToInt().toDouble()/100
 
     //3.convert into string, no package import, 2f = 2 decimal places
-    var round = String.format("%.2f",area) //456.87
+    var decimalValue = String.format("%.2f",area) //456.87
 
     //output
     println("The Perimeter of rectangle is $perimeter")
-    println(" The Area of rectangle is $round")
+    println(" The Area of rectangle is $decimalValue")
 
 }
