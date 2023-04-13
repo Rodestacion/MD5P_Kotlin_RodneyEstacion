@@ -16,9 +16,9 @@ fun main(){
     var cellPhone:String ="0915 123 1234"
     var emailAddress: String ="rod@outlook.com"
     var socialSecurityNumber: String ="013281356836"
-    var usCitizen: Boolean = false
-    var convictedFelony: Boolean = false
-    var preEmploymentDrugTest: Boolean = true
+    var usCitizen: String = "No"
+    var convictedFelony: String = "No"
+    var preEmploymentDrugTest: String = "Yes"
 
     //Education
     var schoolName:String ="Batangas State University"
@@ -42,7 +42,7 @@ fun main(){
     var supervisorName:String ="Marvin"
     var supervisorTitle:String ="Senior Supervisor"
     var reasonLeaving:String ="low income due to low production operation"
-    var contactThem:Boolean =true
+    var contactThem:String = "Yes"
 
     //References
     var referenceName:String ="Marvin"
