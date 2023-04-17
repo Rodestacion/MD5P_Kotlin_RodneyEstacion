@@ -22,6 +22,8 @@ fun main(){
     }
     else if(bodyMassIndex > 30){
         println("Your BMI is $bodyMassIndex, which is in the obese range")
+    }else{
+        println("BMI result unknown")
     }
 
 }

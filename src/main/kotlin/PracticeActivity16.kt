@@ -21,12 +21,12 @@ fun main(){
 
     if(does1Small&&does2Small&&does3Small){
         println("The smallest number is $number1")
-        println("All three input number are same.0")
+        println("All three input number are same.")
     }else if(does1Small){
         println("The smallest number is $number1")
     }else if(does2Small){
         println("The smallest number is $number2")
-    }else if(does3Small) {
+    }else {
         println("The smallest number is $number3")
     }
 

@@ -8,11 +8,13 @@ fun main(){
     var charge : Double = 0.00
     var newFare : Double = 0.00
 
+    //Screen display input reference
     println("Fare Code \tPassenger\t\tDiscount\tIf travelling in business class")
     println("O \t\t\tOrdinary\t\t0%\t\t\tadditional 1000.0")
     println("S \t\t\tStudent\t\t\t5%\t\t\tadditional 700.0")
     println("C \t\t\tSenior Citizen\t10%\t\t\tadditional 500.0\n")
 
+    //User Input
     println("Enter fare")
     fare = readln().toDouble()
     println("Passenger type [O,S,C]:  ")
