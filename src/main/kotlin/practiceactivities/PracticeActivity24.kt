@@ -1,15 +1,6 @@
 package practiceactivities
 
 fun main(){
-    //var number = mutableSetOf<Int>(2,4,6,8,10)
-    //var square = mutableSetOf<Int>(4,16,36,64,100)
-    //var cube = mutableSetOf<Int>(8,64,216,512,1000)
-
-    //change to listOf<>, number, square and cube are static value
-//    var number = listOf<Int>(2,4,6,8,10)
-//    var square = listOf<Int>(4,16,36,64,100)
-//    var cube = listOf<Int>(8,64,216,512,1000)
-
     var number = ArrayList<Int>()
     var square: Int = 0
     var cube: Int = 0
