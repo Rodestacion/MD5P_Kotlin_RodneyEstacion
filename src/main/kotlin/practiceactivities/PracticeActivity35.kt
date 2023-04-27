@@ -2,27 +2,20 @@ package practiceactivities
 
 fun main(){
     var inputMatrix= mutableListOf(
-        mutableListOf<Int>(1,0,0),
-        mutableListOf<Int>(0,1,0),
-        mutableListOf<Int>(0,0,1)
+        mutableListOf<Int>(),
+        mutableListOf<Int>(),
+        mutableListOf<Int>()
     )
     var row: Int = 0
     var column : Int = 0
     var count : Int = 0
-    var rowSize : Int = 0
-    var columnSize : Int = 0
-
-    //get maximum size of row and column
-    rowSize=inputMatrix.size
-    columnSize = inputMatrix[row].size
 
     //loop for user input
-    while (row<rowSize){
-        inputMatrix[row].removeAll(0..rowSize)
+    while (row<3){
         //reset value to 0
         column  = 0
 
-        while (column < columnSize){
+        while (column < 3){
             print("Enter a number ${count+1}: ")
             inputMatrix[row].add(column,readln().toInt())
             column++
@@ -34,10 +27,10 @@ fun main(){
     //loop for output display
     //reset value to 0
     row=0
-    while (row<rowSize){
+    while (row< 3){
         //reset value to 0
         column  = 0
-        while (column < columnSize){
+        while (column < 3){
             print("${inputMatrix[row][column]}\t")
             column++
         }
