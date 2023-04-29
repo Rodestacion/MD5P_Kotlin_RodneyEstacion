@@ -21,7 +21,7 @@ fun main(){
     //reset counter to 0
     counter = 0
     while (counter < number.size){
-        // compute the product and summation of square & cube
+        // compute the product and summation of square & kotlinprograms.cube
         square = number[counter]*number[counter]
         cube = number[counter]*number[counter]*number[counter]
         sumSquare+=square

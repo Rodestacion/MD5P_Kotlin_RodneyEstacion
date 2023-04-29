@@ -1,10 +1,14 @@
 package practiceactivities
+
+import ch.qos.logback.core.joran.conditional.IfAction
+
 fun main(){
     var inputMatrix= mutableListOf(
         mutableListOf<Int>(),
         mutableListOf<Int>(),
         mutableListOf<Int>()
     )
+
     var sum = mutableListOf<Int>()
     var row: Int = 0
     var column : Int = 0
@@ -44,6 +48,8 @@ fun main(){
         row++
     }
 
+
+    //loop for Checking if magic square
     row=0
     count = 0
     while (row<3){
@@ -55,8 +61,8 @@ fun main(){
         //For row and Column
         while (column < 3){
             //computation of row and column summation
-            sumColumn +=inputMatrix[column][row]
-            sumRow+=inputMatrix[row][column]
+            sumColumn +=inputMatrix[column][row]    // vertical reading (0,0) (1,0) (2,0)
+            sumRow+=inputMatrix[row][column]        // horizontal reading (0,0) (0,1) (0,2)
             column++
         }
         //Add the row and column to array once the computation is complete
@@ -68,6 +74,8 @@ fun main(){
         count++
 
         //For Diagonal
+        // sumDiagonal1 combination -> (0,0) (1,1) (2,2)
+        // sumDiagonal2 combination -> (0,2) (1,1) (2,0)
 
         if(row == 2){
             //Add diagonal to array once the computation is complete
@@ -79,14 +87,13 @@ fun main(){
             sum.add(count,sumDiagonal2)
             //println(sum.elementAt(count))
         }else{
-            //computation of two diagonal summation
+            //computation of two diagonal
             sumDiagonal1+=inputMatrix[row][diagonalCount1]
             sumDiagonal2+=inputMatrix[row][diagonalCount2]
             diagonalCount1++
             diagonalCount2--
         }
 
-        println()
         row++
     }
 
@@ -96,8 +103,12 @@ fun main(){
 
     //if array size is more than 1 it automatically identifies as not a magic square
     if(sortedNumber.size==1){
-        println("The number inputted is a magic square")
+        if(sortedNumber.elementAt(0)==15){
+            println("Congratulation!! This is a Magic Square")
+        }else{
+            println("You input an Invalid number for Magic Square")
+        }
     }else{
-        println("The number inputted is not a magic square")
+        println("Sorry!! This is not a Magic Square")
     }
 }

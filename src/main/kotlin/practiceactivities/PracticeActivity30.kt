@@ -11,6 +11,8 @@ fun main(){
         if(searchName==name){
             println("$name phone number is $phone")
             break
+        }else{
+            println("The name is not listed in directory")
         }
     }
 }
