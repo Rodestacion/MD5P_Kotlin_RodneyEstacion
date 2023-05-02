@@ -11,20 +11,20 @@ fun main(){
     println("Number of words: $wordCount")
 }
 fun countWords(text:String):Int{
-    var letterCount: Int = 0
+    var textCount: Int = 0
     var count: Int = 0
     var splitText = text.split(" ")
 
     while(count<splitText.size){
         if(splitText.elementAt(count).length==1|| splitText.elementAt(count).isEmpty()){
             if(splitText.elementAt(count).uppercase()=="I" || splitText.elementAt(count).uppercase()=="A"){
-                letterCount++
+                textCount++
             }
         }else{
-            letterCount++
+            textCount++
         }
         count++
     }
 
-    return letterCount
+    return textCount
 }
