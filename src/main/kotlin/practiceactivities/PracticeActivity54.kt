@@ -12,26 +12,18 @@ fun main(){
         //inputNumber.add(count, (count+1).toDouble())
         count++
     }
-    numberAverage = calculateAverage(inputNumber)
+    numberAverage = calculateAverage(
+        inputNumber.elementAt(0),
+        inputNumber.elementAt(1),
+        inputNumber.elementAt(2),
+        inputNumber.elementAt(3),
+        inputNumber.elementAt(4))
 
     println("Average: ${String.format("%.2f",numberAverage)}")
 
-}
-//fun computeAverage(numbers: MutableList<Double>):Double{
-fun calculateAverage(vararg numbers: MutableList<Double>):Double{
-    var sum: Double = 0.0
+}fun calculateAverage(vararg numbers: Double):Double{
     var average: Double = 0.0
-
-    //get each numbers element and compute the summation
-    //for debug 1 index output only
-    for ((counter, num) in numbers.withIndex()){
-        println(num)//.elementAt(counter))
-        println(num.elementAt(counter))
-        sum +=num.elementAt(counter)
-    }
-
-    //compute the average
-    average = sum/5
+    average = numbers.sum()/numbers.size
 
     return average
 }

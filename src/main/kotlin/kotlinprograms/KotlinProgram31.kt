@@ -1,7 +1,7 @@
 package kotlinprograms
 
 fun main(){
-    println("This is the kotlinprograms.kotlinprograms.practiceactivities.main function!")
+    println("This is the main function!")
     sayHello()
 }
 
