@@ -1,7 +1,7 @@
 package kotlinprograms
 
 fun main(){
-    println("This is the main function!")
+    println("This is the exercises.main function!")
     sayHello()
 }
 
