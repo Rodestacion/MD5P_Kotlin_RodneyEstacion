@@ -8,9 +8,9 @@ fun main(){
         println("Enter an index: ")
         inputNumber = readln().toInt()
 
-        println("Family Game fo today is: ${listOfNumber.elementAt(inputNumber)}")
+        println("Family Game for today is: ${listOfNumber.elementAt(inputNumber)}")
 
-    }catch (exception:Exception){   //ArrayIndexOutOfBoundsException
+    }catch (exception:ArrayIndexOutOfBoundsException){
         println("Error: Index out of bounds. Please enter an index between 0 and 4")
     }
 
