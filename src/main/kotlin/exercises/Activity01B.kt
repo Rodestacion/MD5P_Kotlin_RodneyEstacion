@@ -1,7 +1,10 @@
 package exercises
 
 fun main(){
-    //automate a school’s library.
+    //You are tasked to automate a school’s library.
+    //Identify the items that can be borrowed in a Library.
+    //After listing the different items, identify the characteristics of the items.
+    //Use the proper data types.
     var bookName : String = "Microsoft ADO.NET 2.0"
     var bookAuthor : String = "Rebecca M. Riordan"
     var deweyClassification:String = "600"

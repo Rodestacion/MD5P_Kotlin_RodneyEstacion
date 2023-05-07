@@ -8,6 +8,7 @@ fun main(){
         mutableListOf<Int>(),
         mutableListOf<Int>()
     )
+    var checkInput = mutableListOf<Int>()
 
     var sum = mutableListOf<Int>()
     var row: Int = 0
@@ -20,6 +21,9 @@ fun main(){
     var sumDiagonal1 : Int =0
     var sumDiagonal2 : Int =0
 
+    println("Magic Square Game")
+    println("Input number 1 - 9 once only")
+    println("\t#1 #2 #3\n\t#4 #5 #6\n\t#7 #8 #9\n")
     //loop for user input
     while (row<3){
         //reset value to 0
@@ -41,6 +45,7 @@ fun main(){
         //reset value to 0
         column  = 0
         while (column < 3){
+            checkInput.add(inputMatrix[row][column])
             print("${inputMatrix[row][column]}\t")
             column++
         }
@@ -99,11 +104,11 @@ fun main(){
 
     //sort the array and remove duplicate
     var sortedNumber = sum.toSortedSet()
-    //println(sortedNumber)
+    var check = checkInput.toSortedSet()
 
     //if array size is more than 1 it automatically identifies as not a magic square
     if(sortedNumber.size==1){
-        if(sortedNumber.elementAt(0)==15){
+        if(sortedNumber.elementAt(0)==15 && check.size==9){
             println("Congratulation!! This is a Magic Square")
         }else{
             println("You input an Invalid number for Magic Square")
