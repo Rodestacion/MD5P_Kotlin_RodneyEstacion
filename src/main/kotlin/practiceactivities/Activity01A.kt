@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 
 fun main(){
     //You are tasked to create a directory of the students taking this course.

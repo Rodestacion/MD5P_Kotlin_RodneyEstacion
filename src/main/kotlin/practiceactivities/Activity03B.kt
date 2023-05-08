@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 fun main(){
     //Covered Topic(s) : Functions
     //Instructions :

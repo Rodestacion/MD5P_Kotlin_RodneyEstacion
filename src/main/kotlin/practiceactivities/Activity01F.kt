@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 fun main(){
     //Scope : String, Loops
     //Create an application that will accept 2 string inputs.
@@ -29,7 +29,7 @@ fun displayUnique(string1:String,string2:String): MutableList<String> {
 
     //check the count of each identified unique letter
     repeat(sortLetter.size){
-        letterCount.add(it,letterCounting(string1.lowercase()+string2.lowercase(),sortLetter.elementAt(it)))
+        letterCount.add(it, letterCounting(string1.lowercase()+string2.lowercase(),sortLetter.elementAt(it)))
     }
 
     //loop to remove duplicate letter

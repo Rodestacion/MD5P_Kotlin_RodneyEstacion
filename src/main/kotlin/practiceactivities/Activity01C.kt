@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 
 fun main(){
     //You are tasked to automate an inventory system for a grocery.

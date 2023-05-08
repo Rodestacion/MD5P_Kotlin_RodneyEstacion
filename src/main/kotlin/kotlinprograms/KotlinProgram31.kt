@@ -1,7 +1,7 @@
 package kotlinprograms
 
 fun main(){
-    println("This is the main"+" function!") //always change to "This is the exercises.exercises.main function!"
+    println("This is the main function!") //always change to "This is the exercises.exercises.kotlinoop.kotlinoop.main function!"
     sayHello()
 }
 

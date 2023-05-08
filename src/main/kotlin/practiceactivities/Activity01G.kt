@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 fun main(){
     //Create an application that will accept 1 string.
     //Your application will print “Palindrome” if the string is a palindrome.
@@ -8,7 +8,7 @@ fun main(){
     print("Enter first string: ")
     inputString = readln()
 
-    stringReverse = reverseText(inputString)
+    stringReverse = reverseTexts(inputString)
 
 
     if(inputString.uppercase()==stringReverse.uppercase()){
@@ -18,7 +18,7 @@ fun main(){
     }
 }
 
-fun reverseText(text:String): String {
+fun reverseTexts(text:String): String {
     var reverse:String = ""
     var count: Int = text.length
 

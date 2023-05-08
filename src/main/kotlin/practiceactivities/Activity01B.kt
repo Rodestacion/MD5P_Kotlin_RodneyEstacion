@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 
 fun main(){
     //You are tasked to automate a school’s library.

@@ -1,4 +1,4 @@
-package exercises
+package practiceactivities
 fun main(){
     //Using Activity 01 - B, Implement a process where someone can borrow a book.
     //User: Librarian
