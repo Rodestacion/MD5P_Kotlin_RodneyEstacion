@@ -13,5 +13,40 @@ fun main(){
     //8. Create a function "searchStudent" that will accept a String and call "searchStudentWildSearch" if the String input is less than or equal to three, and it will call "searchStudentName" if the String input is greater than three.
     //9.  Create a function "showStudents" that will print all the entries in the ArrayList.
 
+    var studentName = mutableListOf<String>("Adriel","Zechariah","Amya","Sullivan","Zaiden", "Gabrielle",
+        "Silas","Kamila","Mira","Tyrone","Magdalena","Cloe","Aniya",
+        "Donald","Shayla","Lorelei","Keegan","Byron","Dominick","Raegan")
+
+}
+
+fun isStudentInRecord(){
+
+}
+
+fun addStudent(){
+
+}
+
+fun removeStudent(){
+
+}
+
+fun countStudent(){
+
+}
+
+fun searchStudentWildSearch(){
+
+}
+
+fun searchStudentName(){
+
+}
+
+fun searchStudent(){
+
+}
+
+fun showStudents(){
 
 }

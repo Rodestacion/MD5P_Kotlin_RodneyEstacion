@@ -11,5 +11,20 @@ fun main(){
     //3. Create a function "checkOut". This will compute how many items have been checked out.
     //4. Create a function "removefromCart"  that will accept a String and remove the input from the Hashmap. If there are multiple entries, remove all from the HashMap.
 
+    var groceryProduct = mutableListOf<String>("Applesauce","Sugar","Tabasco Sauce","French Fries","Marshmallows","Red Chile Powder",
+        "Sesame Seeds","Wine","Chicken","Flour","Pasta","Cranberries","Pumpkin Seeds",
+        "Condensed Milk","Beef","Coconut Milk","Canola Oil","Garlic Powder","Curry Leaves","Gelatin"
+    )
+}
+
+fun addToCart(){
 
 }
+fun checkOut(){
+
+}
+
+fun removeFromCart(){
+
+}
+
