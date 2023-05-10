@@ -12,6 +12,7 @@ fun main(){
     var productBrand: String = "Nestle"
     var productSize: Double = 2.4
     var sizeUnit: String ="kg"
+    var shelfStock : Int = 12
     var sellingPrice : Double = 1344.00
     var shelfSection : String = "Infant"
     var shelfLocation : String = "SH2-L03"

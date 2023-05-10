@@ -5,17 +5,32 @@ fun main(){
     //The total of the 5  inputs will be divided by the answer in the second question input.
 
     while (true){
-        var money = mutableListOf<Int>()
+        //var money = mutableListOf<Int>()
+        var amount1:Int = 0
+        var amount2:Int = 0
+        var amount3:Int = 0
+        var amount4:Int = 0
+        var amount5:Int = 0
         var divisor : Int = 0
         var total : Int = 0
         var share : Double = 0.0
 
         println("Enter 5 value")
         try {
-            repeat(5){
-                print("Input value [#${it+1}]: ")
-                money.add(readln().toInt())
-            }
+//            repeat(5){
+//                print("Input value [#${it+1}]: ")
+//                money.d(readln().toInt())ad
+//            }
+            print("Input value [1]: ")
+            amount1 = readln().toInt()
+            print("Input value [2]: ")
+            amount2 = readln().toInt()
+            print("Input value [3]: ")
+            amount3 = readln().toInt()
+            print("Input value [4]: ")
+            amount4 = readln().toInt()
+            print("Input value [5]: ")
+            amount5 = readln().toInt()
 
             while (true){
                 try{
@@ -30,7 +45,8 @@ fun main(){
                 }
             }
 
-            total = money.sum()
+            //total = money.sum()
+            total = amount1 + amount2 + amount3 + amount4 + amount5
             share = total.toDouble()/divisor
 
             println("The total amount is: $total")
