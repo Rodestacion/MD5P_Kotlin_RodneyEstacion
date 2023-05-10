@@ -1,4 +1,4 @@
-package kotlinoop
+package kotlinoop.kotlinoop1
 //OOP
 //Objects-
 //Structural Programing, ProceduralProgramming
@@ -57,7 +57,8 @@ fun main(){
     println(pedroObject.name)
     //pedroObject.name = "John"
     //println(pedroObject.name)
-
     pedroObject.sayHello()
+
+    val petraObject = Person()
 }
 

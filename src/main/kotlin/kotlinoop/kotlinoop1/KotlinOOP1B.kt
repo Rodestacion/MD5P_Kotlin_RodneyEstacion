@@ -1,4 +1,4 @@
-package kotlinoop
+package kotlinoop.kotlinoop1
 
 class Person1B(name:String, age:Int){
     var name : String
