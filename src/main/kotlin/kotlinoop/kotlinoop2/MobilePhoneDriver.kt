@@ -1,4 +1,4 @@
-import kotlinoop.kotlinoop2.MobilePhone
+package kotlinoop.kotlinoop2
 
 fun main(){
     var myPhone = MobilePhone(10)

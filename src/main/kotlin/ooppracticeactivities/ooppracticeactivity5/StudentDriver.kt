@@ -1,4 +1,4 @@
-import ooppracticeactivities.ooppracticeactivity5.Student
+package ooppracticeactivities.ooppracticeactivity5
 
 fun main(){
     var newStudent = Student("Juan Dela Cruz",6,1)
