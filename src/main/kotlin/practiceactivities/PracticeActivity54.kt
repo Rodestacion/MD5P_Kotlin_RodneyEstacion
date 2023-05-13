@@ -18,6 +18,7 @@ fun main(){
         inputNumber.elementAt(2),
         inputNumber.elementAt(3),
         inputNumber.elementAt(4))
+    //numberAverage = calculateAverage(inputNumber)
 
     println("Average: ${String.format("%.2f",numberAverage)}")
 

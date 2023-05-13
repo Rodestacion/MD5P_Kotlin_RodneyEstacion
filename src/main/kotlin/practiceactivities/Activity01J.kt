@@ -1,70 +1,105 @@
 package practiceactivities
+
+import javax.swing.JCheckBoxMenuItem
+
 fun main(){
     //Using Activity 01 - C
     //Implement a process where items are added to the grocery cart.
     //User : Cashier
     //Goal : List of Items bought, how many items were bought and total cost.
 
-    var groceryItem = mutableListOf(
+    val groceryItem = mutableListOf(
         mutableListOf<Int>(1,2,3,4,5,6,7,8,9,10),//selection
-        mutableListOf<String>("Coca Cola Litro","Ketchup","Coffee 3in1","Nido 2.4 kg","Canola oil Double pack","Yakult","Sugar 1/2 kl","Tender Juicy 1kl","Sinigang Original Mix","Gardenia Bread"),//product name
         mutableListOf<Double>(45.0,27.0,70.0,1399.0,326.0,45.0,44.5,190.0,25.0,68.0),//price
+        mutableListOf<String>("Coca Cola Litro","Ketchup","Coffee 3in1","Nido 2.4 kg","Canola oil Double pack","Yakult","Sugar 1/2 kl","Tender Juicy 1kl","Sinigang Original Mix","Gardenia Bread"),//product name
         mutableListOf<Int>(11,12,13,14,15,16,17,18,19,20)//stock quantity
-        //mutableListOf<String>(),//product name
+    )
+//    val cart = arrayListOf(
+//        arrayListOf<Int>(),
+//        arrayListOf<Double>(),
+//        arrayListOf<String>()
+//    )
+//    val cart = mutableListOf(
+//        mutableListOf<String>(),
+//        mutableListOf<String>(),
+//        mutableListOf<String>()
+//    )
+
+    val cart = mutableListOf(
+        mutableListOf<Any>(),
+        mutableListOf<Any>(),
+        mutableListOf<Any>()
     )
 
-    var cart = mutableListOf(
-        mutableListOf<String>(),//product name
-        mutableListOf<Int>(),//order number
-        mutableListOf<Double>()//total amount
-    )
+    var totalAmount : Double = 0.0
+    var totalItem : Int = 0
+    var select :Int = 0
+    var addCart : Int = 0
+    var addItem: Int = 0
+    var addAmount: Double = 0.0
 
-    var total : Double = 0.0
-
-    //to move in while loop
-    repeat(10){column->0
-        repeat(4){
-            print(" ${groceryItem[it][column]}\t")
+    while(true){
+        println("No.\t\tPrice\t\tItem Name")
+        repeat(10){column->0
+            repeat(3){
+                print(" ${groceryItem[it][column]}\t\t")
+            }
+            println()
         }
-        println()
-    }
-    var answer: Boolean = true
-    while(answer){
-
+        println("\nCart amount: $totalAmount")
         println("[1] Add cart")
         println("[2] Check out")
+        print("Select action: ")
+        select = readln().toInt()
 
-        when(1){
+        when(select){
             1->{
-                println("Add to cart")
-                println(groceryItem[2][0])
-                //cart[2].add(groceryItem[2].indexOf(0))
-                //println(cart[2][0])
-                groceryItem[2]
-                //cart[2].add(groceryItem[2].elementAt(0) as Nothing)
+                print("\nWhat is the Item number to add?")
+                addCart = readln().toInt()
+
+                if(addCart<=0||addCart>11){
+                    println("Invalid Input")
+                }else{
+                    print("How many items?")
+                    addItem = readln().toInt()
+                    if(addItem<=0){
+                        println("Invalid Input")
+                    }else{
+                        totalItem += addItem
+                        addAmount = (groceryItem[1].elementAt(addCart-1) as Double) * addItem
+                        totalAmount+= addAmount
+
+//                        cart[0].add(cart[0].size, addItem.toString())
+//                        cart[1].add(cart[1].size, addAmount.toString())
+//                        cart[2].add(cart[2].size, groceryItem[2].elementAt(addCart-1).toString())
 
 
-                answer= false //for remove
+                        cart[0].add(cart[0].size, addItem.toInt())
+                        cart[1].add(cart[1].size, addAmount.toDouble())
+                        cart[2].add(cart[2].size, groceryItem[2].elementAt(addCart-1).toString())
+                    }
+                }
             }
             2->{
-                //cart[2].add(groceryItem[2].elementAt(0) as Nothing)
-                println("Checkout")
-                // 1 replace variable of row size
-                repeat(1){
-                //    total = total + cart[2][it]
+                if (totalAmount==(0).toDouble()){
+                    println("Cart is empty")
+                }else{
+                    println("\t\t\tPrint receipt")
+                    println("Count\t\tPrice\t\tItem Name")
 
+                    repeat(cart[0].size){
+                        repeat(cart.size){count->0
+                            print("${cart[count][it]}\t\t\t")
+                        }
+                        println()
+                    }
+                    println("Total amount: $totalAmount")
+                    println("Total item count: $totalItem")
                 }
-
-                println(total)
-
-                answer= false
-
+                break
             }
-
         }
-
-
     }
-
-
 }
+
+//

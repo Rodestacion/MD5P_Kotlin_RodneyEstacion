@@ -3,7 +3,7 @@ package practiceactivities
 import ch.qos.logback.core.joran.conditional.IfAction
 
 fun main(){
-    var inputMatrix= mutableListOf(
+    val inputMatrix= mutableListOf(
         mutableListOf<Int>(),
         mutableListOf<Int>(),
         mutableListOf<Int>()
