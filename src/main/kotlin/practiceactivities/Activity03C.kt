@@ -15,16 +15,101 @@ fun main(){
         "Sesame Seeds","Wine","Chicken","Flour","Pasta","Cranberries","Pumpkin Seeds",
         "Condensed Milk","Beef","Coconut Milk","Canola Oil","Garlic Powder","Curry Leaves","Gelatin"
     )
+    var cart = hashMapOf<String,Int>()
+
+    while (true){
+        try {
+            var option: Int = 0
+            var inputText: String = ""
+            var inputCount: Int = 0
+            println("[1] Add from Cart")
+            println("[2] Check Out")
+            println("[3] Remove from Cart")
+            println("[4] Exit")
+            print("Select your option: ")
+            option = readln().toInt()
+
+            when (option){
+                1->{
+                    print("Input name of item to add: ")
+                    inputText = readln()
+                    print("How many items?: ")
+                    inputCount = readln().toInt()
+
+                    if(addToCart(groceryProduct,inputText)){
+                        cart[inputText] = inputCount
+                        println(cart)
+                    }
+
+
+//                    if(addToCart(groceryProduct,inputText)){
+//                        println("Sorry! Item $inputText not listed in ")
+//                    }else{
+//                        groceryProduct.add(inputText)
+//                        println("Item Add successfully")
+//                    }
+                }
+                2->{
+                    checkOut(cart)
+                }
+                3->{
+                    print("Input item to remove ")
+                    inputText = readln()
+                    println(cart)
+                    cart.remove(inputText)
+                    println(cart)
+
+//                    if (removeFromCart(groceryProduct,inputText) <0){
+//                        println("Sorry! Book $inputText is not exist in the list")
+//                    }else{
+//                        groceryProduct.removeAt(removeFromCart(groceryProduct,inputText))
+//                        println("Book Remove successfully")
+//                    }
+                }
+                4->{
+                    break
+                }
+
+            }
+            println()
+        }catch (exception:Exception){
+            println("Invalid Input")
+        }
+    }
 }
 
-fun addToCart(){
+fun addToCart(groceryProduct:MutableList<String>,searchItem:String): Boolean {
+    var number :Int = 0
+    var answer:Boolean = false
+
+    while (number<groceryProduct.size){
+        if(groceryProduct.elementAt(number).uppercase()==searchItem.uppercase()){
+            answer = true
+            break
+        }
+        number++
+    }
+
+    return answer
 
 }
-fun checkOut(){
-
+fun checkOut(cart: HashMap<String, Int>){
+    repeat(cart.size){
+        println(cart)
+    }
 }
 
-fun removeFromCart(){
+fun removeFromCart(groceryProduct:MutableList<String>,searchItem:String): Int {
+    var remove: Int = -1
+    var number :Int = 0
 
+    while (number<groceryProduct.size){
+        if(groceryProduct.elementAt(number).uppercase()==searchItem.uppercase()){
+            remove = number
+            break
+        }
+        number++
+    }
+    return remove
 }
 
