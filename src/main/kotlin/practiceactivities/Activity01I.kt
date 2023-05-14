@@ -94,7 +94,6 @@ fun main(){
                 4->{
                     break
                 }
-
             }
 
             println()
@@ -103,10 +102,4 @@ fun main(){
             println("Invalid Input")
         }
     }
-
-
-
-
-
-
 }

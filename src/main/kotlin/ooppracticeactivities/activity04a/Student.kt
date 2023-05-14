@@ -40,21 +40,21 @@ class Student {
     constructor(searchName:String){
         var searchCounter: Int = 0
         repeat(this.lastName.size){
-            if(this.lastName.elementAt(it)==searchName){
+            if(this.lastName.elementAt(it).contains(searchName)){
                 displayDetail(it)
                 searchCounter++
             }
         }
 
         repeat(this.firstName.size){
-            if(this.firstName.elementAt(it)==searchName){
+            if(this.firstName.elementAt(it).contains(searchName)){
                 displayDetail(it)
                 searchCounter++
             }
         }
 
         repeat(this.middleName.size){
-            if(this.middleName.elementAt(it)==searchName){
+            if(this.middleName.elementAt(it).contains(searchName)){
                 displayDetail(it)
                 searchCounter++
             }

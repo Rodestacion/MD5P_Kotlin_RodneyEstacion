@@ -39,67 +39,72 @@ fun main(){
     var addAmount: Double = 0.0
 
     while(true){
-        println("No.\t\tPrice\t\tItem Name")
-        repeat(10){column->0
-            repeat(3){
-                print(" ${groceryItem[it][column]}\t\t")
+        try {
+            println("No.\t\tPrice\t\tItem Name")
+            repeat(10) { column ->
+                0
+                repeat(3) {
+                    print(" ${groceryItem[it][column]}\t\t")
+                }
+                println()
             }
-            println()
-        }
-        println("\nCart amount: $totalAmount")
-        println("[1] Add cart")
-        println("[2] Check out")
-        print("Select action: ")
-        select = readln().toInt()
+            println("\nCart amount: $totalAmount")
+            println("[1] Add cart")
+            println("[2] Check out")
+            print("Select action: ")
+            select = readln().toInt()
 
-        when(select){
-            1->{
-                print("\nWhat is the Item number to add?")
-                addCart = readln().toInt()
+            when (select) {
+                1 -> {
+                    print("\nWhat is the Item number to add?")
+                    addCart = readln().toInt()
 
-                if(addCart<=0||addCart>11){
-                    println("Invalid Input")
-                }else{
-                    print("How many items?")
-                    addItem = readln().toInt()
-                    if(addItem<=0){
+                    if (addCart <= 0 || addCart > 11) {
                         println("Invalid Input")
-                    }else{
-                        totalItem += addItem
-                        addAmount = (groceryItem[1].elementAt(addCart-1) as Double) * addItem
-                        totalAmount+= addAmount
+                    } else {
+                        print("How many items?")
+                        addItem = readln().toInt()
+                        if (addItem <= 0) {
+                            println("Invalid Input")
+                        } else {
+                            totalItem += addItem
+                            addAmount = (groceryItem[1].elementAt(addCart - 1) as Double) * addItem
+                            totalAmount += addAmount
 
 //                        cart[0].add(cart[0].size, addItem.toString())
 //                        cart[1].add(cart[1].size, addAmount.toString())
 //                        cart[2].add(cart[2].size, groceryItem[2].elementAt(addCart-1).toString())
 
 
-                        cart[0].add(cart[0].size, addItem.toInt())
-                        cart[1].add(cart[1].size, addAmount.toDouble())
-                        cart[2].add(cart[2].size, groceryItem[2].elementAt(addCart-1).toString())
-                    }
-                }
-            }
-            2->{
-                if (totalAmount==(0).toDouble()){
-                    println("Cart is empty")
-                }else{
-                    println("\t\t\tPrint receipt")
-                    println("Count\t\tPrice\t\tItem Name")
-
-                    repeat(cart[0].size){
-                        repeat(cart.size){count->0
-                            print("${cart[count][it]}\t\t\t")
+                            cart[0].add(cart[0].size, addItem.toInt())
+                            cart[1].add(cart[1].size, addAmount.toDouble())
+                            cart[2].add(cart[2].size, groceryItem[2].elementAt(addCart - 1).toString())
                         }
-                        println()
                     }
-                    println("Total amount: $totalAmount")
-                    println("Total item count: $totalItem")
                 }
-                break
+
+                2 -> {
+                    if (totalAmount == (0).toDouble()) {
+                        println("Cart is empty")
+                    } else {
+                        println("\t\t\tPrint receipt")
+                        println("Count\t\tPrice\t\tItem Name")
+
+                        repeat(cart[0].size) {
+                            repeat(cart.size) { count ->
+                                0
+                                print("${cart[count][it]}\t\t\t")
+                            }
+                            println()
+                        }
+                        println("Total amount: $totalAmount")
+                        println("Total item count: $totalItem")
+                    }
+                    break
+                }
             }
+        }catch (exception:Exception){
+            println("Invalid input")
         }
     }
 }
-
-//

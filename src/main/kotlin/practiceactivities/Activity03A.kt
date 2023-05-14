@@ -17,36 +17,175 @@ fun main(){
         "Silas","Kamila","Mira","Tyrone","Magdalena","Cloe","Aniya",
         "Donald","Shayla","Lorelei","Keegan","Byron","Dominick","Raegan")
 
+    while (true){
+        try {
+            var option: Int = 0
+            var inputText: String = ""
+            println("[1] Search Student if in the Record")
+            println("[2] Add the student")
+            println("[3] Remove the student")
+            println("[4] Show Number of Enrolled")
+            println("[5] Student Wild Search")
+            println("[6] Search Student Name")
+            println("[7] Search Student")
+            println("[8] Show Students List")
+            println("[9] Exit")
+            print("Select your option: ")
+            option = readln().toInt()
+
+            when (option){
+                1->{
+                    print("Input Student name to search in record: ")
+                    inputText = readln()
+                    if(isStudentInRecord(studentName,inputText)){
+                        println("Student $inputText is existing in the list")
+                    }else{
+                        println("Sorry! Student $inputText is not exist in the list")
+                    }
+                }
+                2->{
+                    print("Input Student name add in record: ")
+                    inputText = readln()
+
+                    if(addStudent(studentName,inputText)){
+                        println("Sorry! Student $inputText is already exist in the list")
+                    }else{
+                        studentName.add(inputText)
+                        println("Student Add successfully")
+                    }
+                }
+                3->{
+                    print("Input Student name to remove ")
+                    inputText = readln()
+
+                    if (removeStudent(studentName,inputText)<0){
+                        println("Sorry! Student $inputText is not exist in the list")
+                    }else{
+                        studentName.removeAt(removeStudent(studentName,inputText))
+                        println("Student Remove successfully")
+                    }
+                }
+                4->{
+                    println("Total student enrolled is: ${countStudent(studentName)}")
+                }
+                5->{
+                    print("Input text to search: ")
+                    inputText = readln()
+                    searchStudentWildSearch(studentName,inputText)
+                }
+                6->{
+                    print("Input exact Student name to search: ")
+                    inputText = readln()
+                    searchStudentName(studentName,inputText)
+                }
+                7->{
+                    print("Input Student name to search: ")
+                    inputText = readln()
+                    searchStudent(studentName,inputText)
+                }
+                8->{
+                    showStudents(studentName)
+                }
+                9->{
+                    break
+                }
+
+            }
+            println()
+        }catch (exception:Exception){
+            println("Invalid Input")
+        }
+    }
 }
 
-fun isStudentInRecord(){
+fun isStudentInRecord(studentName:MutableList<String>,searchName:String):Boolean{
+    var number :Int = 0
+    var answer:Boolean = false
 
+    while (number<studentName.size){
+        if(studentName.elementAt(number).uppercase()==searchName.uppercase()){
+            answer = true
+            break
+        }
+        number++
+    }
+
+    return answer
 }
 
-fun addStudent(){
+fun addStudent(studentName:MutableList<String>,searchName: String):Boolean{
+    var number :Int = 0
+    var answer:Boolean = false
 
+    while (number<studentName.size){
+        if(studentName.elementAt(number).uppercase()==searchName.uppercase()){
+            answer = true
+            break
+        }
+        number++
+    }
+
+    return answer
 }
 
-fun removeStudent(){
+fun removeStudent(studentName:MutableList<String>,searchName: String):Int{
+    var remove: Int = -1
+    var number :Int = 0
 
+    while (number<studentName.size){
+        if(studentName.elementAt(number).uppercase()==searchName.uppercase()){
+            remove = number
+            break
+        }
+        number++
+    }
+    return remove
 }
 
-fun countStudent(){
-
+fun countStudent(studentName:MutableList<String>):Int{
+    return studentName.size
 }
 
-fun searchStudentWildSearch(){
+fun searchStudentWildSearch(studentName:MutableList<String>,searchName: String){
+    var number :Int = 0
 
+    println("List of Name searched")
+    while (number<studentName.size){
+        if(studentName.elementAt(number).uppercase().contains(searchName.uppercase())){
+            println(studentName.elementAt(number))
+        }
+        number++
+    }
+    println("---Nothing Follows---")
 }
 
-fun searchStudentName(){
+fun searchStudentName(studentName:MutableList<String>,searchName: String){
+    var number :Int = 0
 
+    println("List of Name searched")
+
+    while (number<studentName.size){
+        if(studentName.elementAt(number).uppercase()==searchName.uppercase()){
+            println(studentName.elementAt(number))
+        }
+        number++
+    }
+    println("---Nothing Follows---")
 }
 
-fun searchStudent(){
+fun searchStudent(studentName:MutableList<String>,searchName: String){
 
+    if(searchName.length<=3){
+        searchStudentWildSearch(studentName,searchName)
+    }else{
+        searchStudentName(studentName,searchName)
+    }
 }
 
-fun showStudents(){
-
+fun showStudents(studentName:MutableList<String>){
+    println("List of the student")
+    repeat(studentName.size){
+        println(studentName.elementAt(it))
+    }
+    println("---Nothing Follows---")
 }
