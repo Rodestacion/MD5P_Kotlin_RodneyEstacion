@@ -1,15 +1,16 @@
 package practiceactivities
+
 fun main(){
     //Covered Topic(s) : Functions
     //Instructions :
     //1. Create an ArrayList of grocery products with 20 entries.
     //2. Create a HashMap called Cart.
     //Hint:  Hashmap<String, Int>
-    //2. Create a function "addToCart" that will accept a String and an Int, the it will add the input in the Hashmap. If the Entry already exists, create a new entry in the HashMap.
+    //2. Create a function "addToCart" that will accept a String and an Int, that will add the input in the Hashmap. If the Entry already exists, create a new entry in the HashMap.
     //Hint : you may add a "_01", "_02"
     //Example Coke_01, Coke_02
     //3. Create a function "checkOut". This will compute how many items have been checked out.
-    //4. Create a function "removefromCart"  that will accept a String and remove the input from the Hashmap. If there are multiple entries, remove all from the HashMap.
+    //4. Create a function "removeFromCart"  that will accept a String and remove the input from the Hashmap. If there are multiple entries, remove all from the HashMap.
 
     var groceryProduct = mutableListOf<String>("Applesauce","Sugar","Tabasco Sauce","French Fries","Marshmallows","Red Chile Powder",
         "Sesame Seeds","Wine","Chicken","Flour","Pasta","Cranberries","Pumpkin Seeds",
@@ -31,40 +32,39 @@ fun main(){
 
             when (option){
                 1->{
+                    println(groceryProduct)
                     print("Input name of item to add: ")
                     inputText = readln()
                     print("How many items?: ")
                     inputCount = readln().toInt()
 
-                    if(addToCart(groceryProduct,inputText)){
-                        cart[inputText] = inputCount
-                        println(cart)
+                    if(checkExist(groceryProduct,inputText)){
+                        val cartTemp = addToCart(groceryProduct, inputText,inputCount, cart)
+                        cart.clear()
+                        cart = cartTemp
+                    }else{
+                        println("Input item is not in the selection of grocery product")
                     }
 
-
-//                    if(addToCart(groceryProduct,inputText)){
-//                        println("Sorry! Item $inputText not listed in ")
-//                    }else{
-//                        groceryProduct.add(inputText)
-//                        println("Item Add successfully")
-//                    }
                 }
                 2->{
-                    checkOut(cart)
+                    checkOut(groceryProduct, cart)
                 }
                 3->{
+                    println(cart)
                     print("Input item to remove ")
                     inputText = readln()
                     println(cart)
-                    cart.remove(inputText)
-                    println(cart)
 
-//                    if (removeFromCart(groceryProduct,inputText) <0){
-//                        println("Sorry! Book $inputText is not exist in the list")
-//                    }else{
-//                        groceryProduct.removeAt(removeFromCart(groceryProduct,inputText))
-//                        println("Book Remove successfully")
-//                    }
+                    if(checkExist(groceryProduct,inputText)){
+                        val cartTemp = removeFromCart(groceryProduct, inputText, cart)
+                        cart.clear()
+                        cart = cartTemp
+                    }else{
+                        println("Input item is not in the cart")
+                    }
+
+
                 }
                 4->{
                     break
@@ -78,7 +78,88 @@ fun main(){
     }
 }
 
-fun addToCart(groceryProduct:MutableList<String>,searchItem:String): Boolean {
+fun addToCart(groceryProduct: MutableList<String>, searchItem: String, inputCount: Int, cart: HashMap<String, Int>): HashMap<String, Int> {
+    var number :Int = 0
+    var answer:String = ""
+    var extension :Int = 1
+    var duplicate :Boolean = false
+    val tempCart=hashMapOf<String, Int>()
+
+    while (number<groceryProduct.size){
+            if(groceryProduct.elementAt(number).uppercase()==searchItem.uppercase()){
+                answer = groceryProduct.elementAt(number)
+                break
+            }
+            number++
+    }
+
+    for (text in cart){
+        if(text.key.contains(answer)){
+                val tempInt = text.value
+                val tempKey = "${answer}_$extension"
+                tempCart[tempKey]=tempInt
+                duplicate=true
+                extension++
+        }else{
+                tempCart[text.key]=text.value
+        }
+    }
+
+    if(duplicate){
+            tempCart["${answer}_$extension"] = inputCount
+    }else{
+            tempCart[answer] = inputCount
+    }
+
+    return tempCart
+}
+fun checkOut(groceryProduct: MutableList<String>, cart: HashMap<String, Int>){
+    var number : Int = 0
+    var total : Int = 0
+    println("Count\tProduct Name")
+    while (number<groceryProduct.size){
+        var sum:Int = 0
+        for (text in cart){
+            if(text.key.contains(groceryProduct.elementAt(number))){
+                sum+=text.value.toInt()
+            }
+        }
+        if(sum>0){
+            println("$sum\t\t\t${groceryProduct.elementAt(number)}")
+            total+=sum
+        }
+        number++
+    }
+    println("---Nothing Follows---")
+    println("Total is: $total")
+
+
+}
+
+fun removeFromCart(groceryProduct: MutableList<String>, searchItem: String, cart: HashMap<String, Int>): HashMap<String, Int> {
+    var number :Int = 0
+    var answer:String = ""
+    val tempCart=hashMapOf<String, Int>()
+
+    while (number<groceryProduct.size){
+        if(groceryProduct.elementAt(number).uppercase()==searchItem.uppercase()){
+            answer = groceryProduct.elementAt(number)
+            break
+        }
+        number++
+    }
+
+    for (text in cart){
+        if(text.key.contains(answer)){
+            continue
+        }else{
+            tempCart[text.key]=text.value
+        }
+    }
+    return tempCart
+}
+
+fun checkExist(groceryProduct:MutableList<String>,searchItem:String): Boolean{
     var number :Int = 0
     var answer:Boolean = false
 
@@ -91,25 +172,5 @@ fun addToCart(groceryProduct:MutableList<String>,searchItem:String): Boolean {
     }
 
     return answer
-
-}
-fun checkOut(cart: HashMap<String, Int>){
-    repeat(cart.size){
-        println(cart)
-    }
-}
-
-fun removeFromCart(groceryProduct:MutableList<String>,searchItem:String): Int {
-    var remove: Int = -1
-    var number :Int = 0
-
-    while (number<groceryProduct.size){
-        if(groceryProduct.elementAt(number).uppercase()==searchItem.uppercase()){
-            remove = number
-            break
-        }
-        number++
-    }
-    return remove
 }
 
