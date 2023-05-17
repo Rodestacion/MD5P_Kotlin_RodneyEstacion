@@ -1,4 +1,8 @@
 package studentenrollmentsystem
 
 class Course {
+
+
+
+
 }

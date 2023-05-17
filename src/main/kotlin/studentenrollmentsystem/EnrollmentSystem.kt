@@ -1,4 +1,0 @@
-package studentenrollmentsystem
-
-class EnrollmentSystem {
-}
