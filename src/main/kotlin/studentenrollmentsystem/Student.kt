@@ -7,7 +7,7 @@ class Student {
     var gender= mutableListOf<String>("Male")
     var contactNumber= mutableListOf<String>("09161234567")
     var contactEmail= mutableListOf<String>("juan.cruz@outloo.com")
-    var enrolledCourses= hashMapOf<String,String>()
+    var enrolledCourses= mutableMapOf<String, String>()
 
     init {
         enrolledCourses["2023-001"] = "BS Mathematics"
@@ -15,8 +15,8 @@ class Student {
     fun addStudent(name:String,age:Int,gender:String,contactNumber:String,contactEmail:String){
         var count =studentID.size
 
-        val ID = setOf(studentID)
-        val text:String = ID.last().toString()
+        val iD = setOf(studentID)
+        val text:String = iD.last().toString()
         val num:Int = (text.substring(6,9).toInt())+1
         var tempID:String=""
 
@@ -40,6 +40,7 @@ class Student {
     }
     fun removeStudent(name:String){
         val tempIndex: Int = getIndex(name)
+        val tempID = studentID.elementAt(tempIndex)
 
         if(checkExist(name)){
             this.name.removeAt(tempIndex)
@@ -47,12 +48,8 @@ class Student {
             this.gender.removeAt(tempIndex)
             this.contactEmail.removeAt(tempIndex)
             this.contactNumber.removeAt(tempIndex)
+            this.enrolledCourses.remove(tempID)
 
-            val tempID = studentID.elementAt(tempIndex)
-            repeat(studentID.size){
-                this.enrolledCourses.remove(tempID)
-            }
-            this.studentID.removeAt(tempIndex)
 
             display()
 
@@ -60,13 +57,17 @@ class Student {
         }
     }
     fun display(){
-        println(studentID)
-        println(name)
-        println(age)
-        println(gender)
-        println(contactNumber)
-        println(contactEmail)
-        println(enrolledCourses)
+        println("Student Summary")
+        repeat(studentID.size){
+            println(studentID)
+            println(name)
+            println(age)
+            println(gender)
+            println(contactNumber)
+            println(contactEmail)
+            println(enrolledCourses)
+        }
+
     }
 
     private fun checkExist(name:String):Boolean{
@@ -74,6 +75,7 @@ class Student {
         for (text in this.name){
             if(text.uppercase()==name.uppercase()){
                 answer=true
+                break
             }
         }
         return answer
