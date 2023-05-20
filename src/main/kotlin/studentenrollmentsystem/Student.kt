@@ -1,19 +1,17 @@
 package studentenrollmentsystem
 
 class Student {
-    var studentID = mutableListOf<String>("2023-001")
-    var name= mutableListOf<String>("Juan Dela Cruz")
-    var age= mutableListOf<Int>(25)
-    var gender= mutableListOf<String>("Male")
-    var contactNumber= mutableListOf<String>("09161234567")
-    var contactEmail= mutableListOf<String>("juan.cruz@outloo.com")
-    var enrolledCourses= mutableMapOf<String, String>()
+    private var studentID = mutableListOf<String>("2023-001")
+    private var name= mutableListOf<String>("Juan")
+    private var age= mutableListOf<Int>(25)
+    private var gender= mutableListOf<String>("Male")
+    private var contactNumber= mutableListOf<String>("09161234567")
+    private var contactEmail= mutableListOf<String>("juan.cruz@outloo.com")
+    private var enrolledCourses= mutableListOf<String>("BS Mathematics")
 
-    init {
-        enrolledCourses["2023-001"] = "BS Mathematics"
-    }
-    fun addStudent(name:String,age:Int,gender:String,contactNumber:String,contactEmail:String){
-        var count =studentID.size
+
+    fun addStudent(name:String,age:Int,gender:String,contactNumber:String,contactEmail:String,course:String){
+        val count =studentID.size
 
         val iD = setOf(studentID)
         val text:String = iD.last().toString()
@@ -34,8 +32,9 @@ class Student {
         this.gender.add(count,gender)
         this.contactNumber.add(count,contactNumber)
         this.contactEmail.add(count,contactEmail)
+        this.enrolledCourses.add(count,course)
 
-        display()
+        println("Student $name with assign student ID ${studentID.elementAt(studentID.lastIndex)} was successfully add")
 
     }
     fun removeStudent(name:String){
@@ -43,29 +42,31 @@ class Student {
         val tempID = studentID.elementAt(tempIndex)
 
         if(checkExist(name)){
+            this.studentID.removeAt(tempIndex)
             this.name.removeAt(tempIndex)
             this.age.removeAt(tempIndex)
             this.gender.removeAt(tempIndex)
             this.contactEmail.removeAt(tempIndex)
             this.contactNumber.removeAt(tempIndex)
-            this.enrolledCourses.remove(tempID)
+            this.enrolledCourses.removeAt(tempIndex)
 
-
-            display()
-
-
+            println("Student $name with ID $tempID was successfully remove")
+        }else{
+            println("Student $name not exist in the list")
         }
     }
-    fun display(){
-        println("Student Summary")
+    fun displayStudentInfo(){
+        println("\nStudent Summary")
         repeat(studentID.size){
-            println(studentID)
-            println(name)
-            println(age)
-            println(gender)
-            println(contactNumber)
-            println(contactEmail)
-            println(enrolledCourses)
+            println("*******************")
+            println("Student ID: ${studentID.elementAt(it)}")
+            println("Name: ${name.elementAt(it)}")
+            println("Age: ${age.elementAt(it)}")
+            println("Gender: ${gender.elementAt(it)}")
+            println("Contact #: ${contactNumber.elementAt(it)}")
+            println("E-mail: ${contactEmail.elementAt(it)}")
+            println("Course: ${enrolledCourses.elementAt(it)}")
+            println()
         }
 
     }
