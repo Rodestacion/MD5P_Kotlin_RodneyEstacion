@@ -17,7 +17,7 @@ class Student {
 
         val ID = setOf(studentID)
         val text:String = ID.last().toString()
-        var num:Int = (text.substring(6,9).toInt())+1
+        val num:Int = (text.substring(6,9).toInt())+1
         var tempID:String=""
 
         if(num.toString().length==1){
@@ -38,8 +38,26 @@ class Student {
         display()
 
     }
-    fun removeStudent(){
+    fun removeStudent(name:String){
+        val tempIndex: Int = getIndex(name)
 
+        if(checkExist(name)){
+            this.name.removeAt(tempIndex)
+            this.age.removeAt(tempIndex)
+            this.gender.removeAt(tempIndex)
+            this.contactEmail.removeAt(tempIndex)
+            this.contactNumber.removeAt(tempIndex)
+
+            val tempID = studentID.elementAt(tempIndex)
+            repeat(studentID.size){
+                this.enrolledCourses.remove(tempID)
+            }
+            this.studentID.removeAt(tempIndex)
+
+            display()
+
+
+        }
     }
     fun display(){
         println(studentID)
@@ -49,5 +67,28 @@ class Student {
         println(contactNumber)
         println(contactEmail)
         println(enrolledCourses)
+    }
+
+    private fun checkExist(name:String):Boolean{
+        var answer:Boolean = false
+        for (text in this.name){
+            if(text.uppercase()==name.uppercase()){
+                answer=true
+            }
+        }
+        return answer
+    }
+
+    private fun getIndex(name:String):Int{
+        var answer:Int = 0
+        var count:Int = 0
+        while (count < this.name.size){
+            if(this.name.elementAt(count).uppercase()==name.uppercase()){
+                answer=count
+                break
+            }
+            count++
+        }
+        return answer
     }
 }
