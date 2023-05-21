@@ -1,15 +1,15 @@
 package ooppracticeactivities.activity04c
 
 class Breakfast {
-    private val productName:String = ""
-    private val typeOfProduct:String = ""
-    private val manufacturer:String = ""
-    private val sizeOfProduct:Double=0.0
-    private val sizeUnit:String = ""
-    private val priceOfProduct:String = ""
+    private val productName:String = "Nestle Koko Krunch"
+    private val typeOfProduct:String = "Cereals"
+    private val manufacturer:String = "Nestle"
+    private val sizeOfProduct:Double=450.0
+    private val sizeUnit:String = "g"
+    private val priceOfProduct: Double = 211.95
 
     fun displayItem(){
-        println("----- $typeOfProduct Information -----")
+        println("----- $typeOfProduct Breakfast Information -----")
         println("Product Name: $productName")
         println("Manufactured: $manufacturer")
         println("Size: $sizeOfProduct $sizeUnit")
