@@ -1,10 +1,20 @@
 package ooppracticeactivities.activity04c
 
 class Furniture {
-    var productName:String = ""
-    var typeOfProduct:String = ""
-    var manufacturer:String = ""
-    var sizeOfProduct:Double=0.0
-    var sizeUnit:String = ""
-    var priceOfProduct:String = ""
+    private val productName:String = ""
+    private val typeOfProduct:String = ""
+    private val manufacturer:String = ""
+    private val sizeOfProduct:Double=0.0
+    private val sizeUnit:String = ""
+    private val priceOfProduct:String = ""
+
+    fun displayItem(){
+        println("----- $typeOfProduct Information -----")
+        println("Product Name: $productName")
+        println("Manufactured: $manufacturer")
+        println("Size: $sizeOfProduct $sizeUnit")
+        println("Product Price: $priceOfProduct")
+        println("*************************************")
+        println()
+    }
 }

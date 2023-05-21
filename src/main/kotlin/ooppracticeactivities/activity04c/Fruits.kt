@@ -1,10 +1,20 @@
 package ooppracticeactivities.activity04c
 
 class Fruits {
-    var productName:String = ""
-    var typeOfProduct:String = ""
-    var manufacturer:String = ""
-    var sizeOfProduct:Double=0.0
-    var sizeUnit:String = ""
-    var priceOfProduct:String = ""
+    private val productName:String = "NLFJ Banana Saba"
+    private val typeOfProduct:String = "Whole"
+    private val supplier:String = "North Star Meat Merchants"
+    private val sizeOfProduct:Double=1200.0
+    private val sizeUnit:String = "g"
+    private val priceOfProduct: Double = 81.0
+
+    fun displayItem(){
+        println("----- $typeOfProduct Fruit Information -----")
+        println("Product Name: $productName")
+        println("Supplier: $supplier")
+        println("Size: $sizeOfProduct $sizeUnit")
+        println("Product Price: $priceOfProduct")
+        println("*************************************")
+        println()
+    }
 }

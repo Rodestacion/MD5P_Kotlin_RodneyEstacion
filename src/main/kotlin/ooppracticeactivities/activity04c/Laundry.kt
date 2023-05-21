@@ -1,15 +1,15 @@
 package ooppracticeactivities.activity04c
 
-class Snacks {
-    private val productName:String = "Jack & Jill Piattos Cheese"
-    private val typeOfProduct:String = "Chips & Dips"
-    private val manufacturer:String = "Universal Robina Corporation's (URC)"
-    private val sizeOfProduct:Double=85.0
+class Laundry {
+    private val productName:String = "Ariel Liquid Detergent Refill Sunrise Fresh"
+    private val typeOfProduct:String = "Liquid Detergent"
+    private val manufacturer:String = "FMCG Viet Co., Ltd"
+    private val sizeOfProduct:Double=810.0
     private val sizeUnit:String = "g"
-    private val priceOfProduct:Double = 35.00
+    private val priceOfProduct:Double = 148.75
 
     fun displayItem(){
-        println("----- $typeOfProduct Snacks Information -----")
+        println("----- $typeOfProduct Laundry Information -----")
         println("Product Name: $productName")
         println("Manufactured: $manufacturer")
         println("Size: $sizeOfProduct $sizeUnit")
